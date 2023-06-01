@@ -31,6 +31,10 @@ provider "proxmox" {
 
 }
 
+variable "build_list" {
+    type = list
+}
+
 variable "range_configuration" {
     type = list
 }

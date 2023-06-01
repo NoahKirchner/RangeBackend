@@ -1,6 +1,6 @@
 variable "range_configuration" {
     default = {
-        "win10-workstation" {
+        "win10-workstation" = {
             vm_count = 2
             name = "tf-win10-pro-${vm_count.index}"
             target_node = "r730"
