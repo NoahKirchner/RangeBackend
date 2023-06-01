@@ -63,26 +63,34 @@ build_list = distinct(flatten([
 resource "proxmox_vm_qemu" "virtual_machines" {
     for_each = { for item in var.range_configuration : item.vm_count => item...}
 
-    name = each.value.name
-    target_node = each.value.target_node
-    clone = each.value.clone
+    name = each.value.name[item]
+
+    target_node = each.value.target_node[item]
+
+    clone = each.value.clone[item]
+
     full_clone = true
-    os_type = each.value.os_type
-    cores = each.value.cores
-    sockets = each.value.sockets
-    memory = each.value.memory
+
+    os_type = each.value.os_type[item]
+
+    cores = each.value.cores[item]
+
+    sockets = each.value.sockets[item]
+
+    memory = each.value.memory[item]
+
     scsihw = "virtio-scsi-pci"
     oncreate = true
 
     disk {
-        size = each.value.disk_size
+        size = each.value.disk_size[item]
         type = "scsi"
         storage = "local"
     }
 
     network {
         model = "e1000"
-        bridge = each.value.network_bridge
+        bridge = each.value.network_bridge[item]
     }
 }
 
