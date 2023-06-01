@@ -66,7 +66,7 @@ output "range_count" {
 resource "proxmox_vm_qemu" "virtual_machines" {
     for_each = { for item in var.range_configuration : item.vm_count => item...}
 
-    name = each.value.name[item.index]
+    name = item.value.name
     target_node = each.value.target_node[item.index]
     clone = each.value.clone[item.index]
 
