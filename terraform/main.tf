@@ -61,7 +61,7 @@ build_list = distinct(flatten([
 }
 
 resource "proxmox_vm_qemu" "virtual_machines" {
-    for_each = toset(local.build_list)
+    for_each = local.build_list
 
     name = each.value.name
     target_node = each.value.target_node
