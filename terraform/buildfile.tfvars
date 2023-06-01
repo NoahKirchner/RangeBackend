@@ -1,4 +1,4 @@
-variable "range_configuration" {
+range_configuration = {
     default = {
         "win10-workstation" = {
             vm_count = 2
