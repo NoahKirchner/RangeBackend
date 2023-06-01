@@ -38,7 +38,8 @@ locals {
 build_list = distinct(flatten([
     for resource in var.range_configuration : [
         for vm_count in range(0, resource.vm_count, 1) : {
-           vm = vm_count
+           vm_resource = resource
+           vm_count = vm_count
         }
     ] 
 
