@@ -32,7 +32,18 @@ provider "proxmox" {
 }
 
 variable "range_configuration" {
-    type = list
+    type = list(object({
+        vm_count = number
+        name = string
+        target_node = string
+        clone = string
+        os_type = string
+        sockets = number
+        cores = number
+        memory = string
+        disk_size = string
+        network_bridge = string
+    }))
 }
 
 locals {
