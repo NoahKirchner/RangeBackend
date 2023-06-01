@@ -31,9 +31,6 @@ provider "proxmox" {
 
 }
 
-variable "build_list" {
-    type = list
-}
 
 
 locals {
