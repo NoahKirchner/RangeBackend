@@ -22,7 +22,7 @@ range_configuration = [
         target_node = "r730"
         clone = "Windows10Pro"
         os_type = "linux"
-        socket = 2
+        sockets = 2
         cores = 2
         memory = "4096"
 
