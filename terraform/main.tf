@@ -31,7 +31,9 @@ provider "proxmox" {
 
 }
 
-
+variable "range_configuration" {
+    type = list
+}
 
 locals {
 
