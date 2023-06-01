@@ -1,5 +1,6 @@
 range_configuration = [
-    "win10-workstation" = {
+        {
+        // Windows 10 Pro @ Workstation Subnet
         vm_count = 2
         name = "tf-win10-pro"
         target_node = "r730"
@@ -14,7 +15,8 @@ range_configuration = [
         network_bridge = "vmbr2"
             
         },
-    "ubuntu-workstation" = {
+        {
+        // Ubuntu Desktop @ Workstation Subnet
         vm_count = 2
         name = "tf-ubuntu-desktop"
         target_node = "r730"
@@ -27,5 +29,5 @@ range_configuration = [
         disk_size = "50G"
 
         network_bridge = "vmbr"
-    },
+        },
 ]
