@@ -66,32 +66,32 @@ output "range_count" {
 resource "proxmox_vm_qemu" "virtual_machines" {
     for_each = { for item in var.range_configuration : item.vm_count => item...}
 
-    name = each.value.name[item]
-    target_node = each.value.target_node[item]
-    clone = each.value.clone[item]
+    name = each.value.name[item.index]
+    target_node = each.value.target_node[item.index]
+    clone = each.value.clone[item.index]
 
     full_clone = true
 
-    os_type = each.value.os_type[item]
+    os_type = each.value.os_type[item.index]
 
-    cores = each.value.cores[item]
+    cores = each.value.cores[item.index]
 
-    sockets = each.value.sockets[item]
+    sockets = each.value.sockets[item.index]
 
-    memory = each.value.memory[item]
+    memory = each.value.memory[item.index]
 
     scsihw = "virtio-scsi-pci"
     oncreate = true
 
     disk {
-        size = each.value.disk_size[item]
+        size = each.value.disk_size[item.index]
         type = "scsi"
         storage = "local"
     }
 
     network {
         model = "e1000"
-        bridge = each.value.network_bridge[item]
+        bridge = each.value.network_bridge[item.index]
     }
 }
 
