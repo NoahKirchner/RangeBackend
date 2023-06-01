@@ -31,6 +31,51 @@ provider "proxmox" {
 
 }
 
+variable "range_configuration" {
+    type = list
+}
+
+locals {
+
+build_list = distinct(flatten([
+    for resource in var.range_configuration : [
+        for vm_count in index(resource.vm_count) : {
+           vm = vm_count
+        }
+    ] 
+
+
+]))
+}
+
+resource "proxmox_vm_qemu" "virtual_machines" {
+    for_each = local.build_list
+
+    name = each.value.name
+    target_node = each.value.target_node
+    clone = each.value.clone
+    full_clone = true
+    os_type = each.value.os_type
+    cores = each.value.cores
+    sockets = each.value.sockets
+    memory = each.value.memory
+    scsihw = "virtio-scsi-pci"
+    oncreate = true
+
+    disk {
+        size = each.value.disk_size
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "e1000"
+        bridge = each.value.network_bridge
+    }
+}
+
+
+/*
 variable "win2019_server" {
     type = number
 }
@@ -82,7 +127,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
     }
 }
@@ -138,7 +183,7 @@ resource "proxmox_vm_qemu" "kali" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
     }
 
@@ -167,7 +212,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
     }
 
@@ -196,7 +241,7 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
     }
 
@@ -223,8 +268,9 @@ resource "proxmox_vm_qemu" "seconion_standalone" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
     }
 
 }
+*/
