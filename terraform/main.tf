@@ -135,7 +135,7 @@ resource "proxmox_vm_qemu" "kali" {
     }
 
     network {
-        model = "e100"
+        model = "e1000"
         bridge = "vmbr10"
     }
 
