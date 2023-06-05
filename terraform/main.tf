@@ -143,11 +143,11 @@ resource "proxmox_vm_qemu" "kali" {
 }
 
 
-resource "proxmox_vm_qemu" "ubuntu_desktop" {
+resource "proxmox_vm_qemu" "ubuntu_orchestration" {
 
-    count = 0
+    count = 1
 
-    name = "ubuntu-desktop-tf-${count.index}"
+    name = "ubuntu-orchestration-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuHost"
     full_clone = true
@@ -166,7 +166,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
     network {
         model = "virtio"
-        bridge = "vmbr2"
+        bridge = "vmbr0"
     }
 
 
