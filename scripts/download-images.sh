@@ -19,7 +19,8 @@ while read -r name address sha256hash; do
     fi 
     if echo "$address" | grep -Ei '.gz'; then
         mv ../images/$name.iso "../images/$name.gz";
-        gzip -d ../images/$name.gz 
+        gzip -d ../images/$name.gz
+        mv ../images/$name ../images/$name.iso
     fi 
 
 done < "./mirrorlist"
