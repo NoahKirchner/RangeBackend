@@ -25,6 +25,11 @@ echo -n 'PM_PASSWORD="' >> credentials.tfvars
 echo -n $password >> credentials.tfvars
 echo  '"' >> credentials.tfvars
 
-terraform init
+(cd ./core-topology && terraform init)
+
+(cd ./init-topology && terraform init)
+
+(cd ./range-topology && terraform init)
+
 
 echo "MAKE ME PRETTIER"
