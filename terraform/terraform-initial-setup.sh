@@ -1,6 +1,7 @@
 #!/bin/bash 
 
-password=$1
+echo "Enter the terraform API password you would like to use:"
+read password
 if [ -z "$password" ]; then 
     echo "Please select a password for the terraform user account to use. The syntax of this script is terraformsetup.sh <password>";
     exit
