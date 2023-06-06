@@ -32,4 +32,3 @@ echo  '"' >> credentials.tfvars
 (cd ./range-topology && terraform init)
 
 
-echo "MAKE ME PRETTIER"
