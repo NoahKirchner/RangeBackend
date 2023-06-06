@@ -17,7 +17,7 @@ else
     echo -e "$warn No credential file found. Have you run terraform_setup.sh?"
 fi 
 
-(cd ./init-topology && terraform apply --var-file=../credentials.tfvars --auto-accept)
+(cd ./init-topology && terraform apply --var-file=../credentials.tfvars --auto-approve)
 
 
     
