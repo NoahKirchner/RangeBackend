@@ -1,0 +1,6 @@
+#/bin/sh 
+
+while read -r user pass; do
+  useradd -m $user
+  echo -e "$pass\n$pass" | (passwd $user)
+done < "./UserPass"
