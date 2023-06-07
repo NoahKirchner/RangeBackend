@@ -3,6 +3,10 @@ source "proxmox-iso" "test-me" {
     sockets = 1
     cores = 2
     cpu_type = "host"
+    network {
+        model = "e1000"
+        bridge = "vmbr0"
+    }
     disks {
         disk_size = "10G"
         storage_pool = "local"
