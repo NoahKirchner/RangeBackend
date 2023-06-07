@@ -18,7 +18,8 @@ source "proxmox-iso" "test-me" {
     template_description = "huh"
     template_name = "test-me"
     boot_command = [
-        "<wait>e<wait><down><down><down>",
+        "<esc><wait>",
+        "<esc><wait>",
         "<enter><wait>",
         "/install/vmlinuz<wait>",
         " initrd=/install/initrd.gz",
