@@ -9,7 +9,7 @@ source "proxmox-iso" "test-me" {
         type = "scsi"
     }
     insecure_skip_tls_verify = true
-    iso_file = "local:iso/ubuntudesktopraw.iso"
+    iso_file = "local:iso/debianraw.iso"
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     ssh_password = "1qaz2wsx!QAZ@WSX"
@@ -24,7 +24,7 @@ source "proxmox-iso" "test-me" {
         " initrd=/install/initrd.gz",
         " auto-install/enable=true",
         " debconf/priority=critical",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/ubuntudesktop.preseed<wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/debian.preseed<wait>",
         " -- <wait>",
         "<enter><wait>",
     ]

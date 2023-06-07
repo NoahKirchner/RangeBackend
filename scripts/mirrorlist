@@ -1,3 +1,4 @@
+debianraw https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-11.7.0-amd64-DVD-1.iso cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f
 pfsenseraw https://atxfiles.netgate.com/mirror/downloads/pfSense-CE-2.5.1-RELEASE-amd64.iso.gz be79df534558e6a73f7be2e8643c6ed01580e40b79b255f9bd8e8cca6471fee7
 win10raw https://mirror.mika.moe/files/Win10_21H2_English_x64.iso 7f6538f0eb33c30f0a5cbbf2f39973d4c8dea0d64f69bd18e406012f17a8234f
 kaliraw https://cdimage.kali.org/kali-2023.1/kali-linux-2023.1-installer-netinst-amd64.iso 344a8c948af62f7a288e3dc658291ec3d3cfcdbe5ad1e2f45334740bd6ff481d
