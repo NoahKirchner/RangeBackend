@@ -26,6 +26,7 @@ source "proxmox-iso" "test-me" {
         "<down><wait>",
         "<down><wait>",
         "<down><wait>",
+        "<down><wait>",
         "<enter><wait>",
         "<wait>",
         "http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/debian.preseed<enter><wait>",
