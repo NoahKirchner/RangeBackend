@@ -11,7 +11,7 @@ source "proxmox-iso" "win10" {
     disks {
         disk_size = "50G"
         storage_pool = "local"
-        type = "scsi"
+        type = "ide"
     }
     insecure_skip_tls_verify = true
     iso_file = "local:iso/Windows10.iso"
