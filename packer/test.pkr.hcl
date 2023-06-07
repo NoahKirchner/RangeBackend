@@ -38,7 +38,8 @@ source "proxmox-iso" "test-me" {
         "<wait>",
         "whitecell<enter><wait>",
         "whitecell<enter><wait10s>",
-        "<tab><enter>"
+        "<tab><enter>",
+        "<wait7m>/dev/sda<enter>",
     ]
     boot_wait = "10s"
     http_directory = "."
