@@ -30,7 +30,7 @@ d-i mirror/http/hostname string archive.ubuntu.com
 d-i mirror/http/proxy string
 
 ### Partitioning
-d-i partman-auto/method string local
+d-i partman-auto/method string lvm
 
 # This makes partman automatically partition without confirmation.
 d-i partman-md/confirm boolean true
