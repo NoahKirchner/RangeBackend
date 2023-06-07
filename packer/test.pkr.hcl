@@ -3,7 +3,6 @@ source "proxmox-iso" "test-me" {
     sockets = 1
     cores = 2
     cpu_type = "host"
-    os = "linux"
     disks {
         disk_size = "10G"
         storage_pool = "local"
