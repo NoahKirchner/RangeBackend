@@ -35,6 +35,9 @@ source "proxmox-iso" "test-me" {
         "<wait1m30s>",
         "http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseeds/debian.preseed<enter><wait>",
         "<enter><wait>",
+        "<wait>",
+        "whitecell<enter><wait>",
+        "whitecell<enter><wait>",
     ]
     boot_wait = "10s"
     http_directory = "."
