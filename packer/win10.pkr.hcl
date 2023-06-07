@@ -19,12 +19,16 @@ source "proxmox-iso" "win10" {
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     communicator = "winrm"
     winrm_password = "whitecell"
-    ssh_timeout = "15m"
-    ssh_username = "Administrator"
+    winrm_timeout = "15m"
+    winrm_username = "Administrator"
     template_description = "Windows 10"
     template_name = "win10-template"
-    iso_storage_pool = "local"
-    cd_files = ["./preseeds/10/autounattend.xml"]
+    additional_iso_files {
+        iso_storage_pool = "local"
+        cd_files = ["./preseeds/10/autounattend.xml"]
+        cd_label = "windata"
+        unmount = "true"
+    }
     boot_wait = "10s"
 }
 
