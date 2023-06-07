@@ -25,7 +25,6 @@ source "proxmox-iso" "win10" {
     template_name = "win10-template"
     iso_storage_pool = "local"
     cd_files = ["./preseeds/10/autounattend.xml"]
-    cd_label = "windata"
     boot_wait = "10s"
 }
 
