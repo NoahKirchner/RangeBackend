@@ -3,7 +3,7 @@ source "proxmox-iso" "test-me" {
     sockets = 1
     cores = 2
     cpu_type = "host"
-    network {
+    network_adapters {
         model = "e1000"
         bridge = "vmbr0"
     }
