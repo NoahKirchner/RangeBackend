@@ -27,7 +27,6 @@ source "proxmox-iso" "win10" {
         iso_storage_pool = "local"
         cd_files = ["./preseeds/10/autounattend.xml"]
         cd_label = "windata"
-        unmount = "true"
     }
     boot_wait = "10s"
 }
