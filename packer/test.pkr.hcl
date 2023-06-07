@@ -33,7 +33,7 @@ source "proxmox-iso" "test-me" {
         "<down><wait>",
         "<enter><wait>",
         "<wait1m30s>",
-        "http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/debian.preseed<enter><wait>",
+        "http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseeds/debian.preseed<enter><wait>",
         "<enter><wait>",
     ]
     boot_wait = "10s"
