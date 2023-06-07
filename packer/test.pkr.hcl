@@ -1,4 +1,9 @@
 source "proxmox-iso" "test-me" {
+    memory = "4096"
+    sockets = 1
+    cores = 2
+    cpu_type = "host"
+    os = "linux"
     disks {
         disk_size = "10G"
         storage_pool = "local"
@@ -13,6 +18,9 @@ source "proxmox-iso" "test-me" {
     ssh_username = "defender"
     template_description = "huh"
     template_name = "test-me"
+    boot_command = [
+    
+    ]
 }
 
 build {
