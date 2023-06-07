@@ -1,4 +1,4 @@
-source "proxmox-iso" "test-me" {
+source "proxmox-iso" "debian" {
     memory = "4096"
     sockets = 1
     cores = 2
@@ -19,8 +19,8 @@ source "proxmox-iso" "test-me" {
     ssh_password = "whitecell"
     ssh_timeout = "15m"
     ssh_username = "whitecell"
-    template_description = "huh"
-    template_name = "test-me"
+    template_description = "Debian"
+    template_name = "debian-template"
     boot_command = [
         "<down><wait>",
         "<down><wait>",
@@ -46,5 +46,5 @@ source "proxmox-iso" "test-me" {
 }
 
 build {
-    sources = ["source.proxmox-iso.test-me"]
+    sources = ["source.proxmox-iso.debian"]
 }
