@@ -14,7 +14,7 @@ source "proxmox-iso" "win10" {
         type = "scsi"
     }
     insecure_skip_tls_verify = true
-    iso_file = "local:iso/win10raw.iso"
+    iso_file = "local:iso/Windows10.iso"
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     communicator = "winrm"
