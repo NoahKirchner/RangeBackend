@@ -3,6 +3,7 @@ source "proxmox-iso" "win10" {
     sockets = 1
     cores = 2
     cpu_type = "host"
+    os = "win10"
     network_adapters {
         model = "e1000"
         bridge = "vmbr0"
@@ -22,7 +23,9 @@ source "proxmox-iso" "win10" {
     ssh_username = "Administrator"
     template_description = "Windows 10"
     template_name = "win10-template"
-    floppy_files = ["./preseeds/10/autounattend.xml"]
+    iso_storage_pool = "local"
+    cd_files = ["./preseeds/10/autounattend.xml"]
+    cd_label = "windata"
     boot_wait = "10s"
 }
 
