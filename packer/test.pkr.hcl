@@ -18,15 +18,18 @@ source "proxmox-iso" "test-me" {
     template_description = "huh"
     template_name = "test-me"
     boot_command = [
-        "<esc><wait>",
-        "<esc><wait>",
+        "<down><wait>",
+        "<down><wait>",
+        "<down><wait>",
         "<enter><wait>",
-        "/install/vmlinuz<wait>",
-        " initrd=/install/initrd.gz",
-        " auto-install/enable=true",
-        " debconf/priority=critical",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/debian.preseed<wait>",
-        " -- <wait>",
+        "<down><wait>",
+        "<down><wait>",
+        "<down><wait>",
+        "<down><wait>",
+        "<down><wait>",
+        "<enter><wait>",
+        "<wait>",
+        "http://{{ .HTTPIP }}:{{ .HTTPPort }}./preseeds/debian.preseed<enter><wait>",
         "<enter><wait>",
     ]
     boot_wait = "10s"
