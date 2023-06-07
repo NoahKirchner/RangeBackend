@@ -4,6 +4,7 @@ source "proxmox-iso" "test-me" {
         storage_pool = "local"
         type = "scsi"
     }
+    insecure_skip_tls_verify = true
     iso_file = "local:iso/ubuntudesktopraw.iso"
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
