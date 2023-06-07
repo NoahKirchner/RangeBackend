@@ -32,7 +32,7 @@ source "proxmox-iso" "test-me" {
         "<down><wait>",
         "<down><wait>",
         "<enter><wait>",
-        "<wait30s>",
+        "<wait1m>",
         "http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseeds/debian.preseed<enter><wait>",
         "<enter><wait>",
         "<wait>",
