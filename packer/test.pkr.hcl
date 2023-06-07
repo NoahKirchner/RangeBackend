@@ -16,9 +16,9 @@ source "proxmox-iso" "test-me" {
     iso_file = "local:iso/debianraw.iso"
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
-    ssh_password = "1qaz2wsx!QAZ@WSX"
+    ssh_password = "whitecell"
     ssh_timeout = "15m"
-    ssh_username = "defender"
+    ssh_username = "whitecell"
     template_description = "huh"
     template_name = "test-me"
     boot_command = [
@@ -37,7 +37,8 @@ source "proxmox-iso" "test-me" {
         "<enter><wait>",
         "<wait>",
         "whitecell<enter><wait>",
-        "whitecell<enter><wait>",
+        "whitecell<enter><wait10s>",
+        "<tab><enter>"
     ]
     boot_wait = "10s"
     http_directory = "."
