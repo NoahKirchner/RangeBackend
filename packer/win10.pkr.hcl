@@ -12,6 +12,7 @@ source "proxmox-iso" "win10" {
         disk_size = "50G"
         storage_pool = "local"
         type = "ide"
+        format = "qcow2"
     }
     insecure_skip_tls_verify = true
     iso_file = "local:iso/win10raw.iso"
