@@ -20,7 +20,6 @@ source "proxmox-iso" "test-me" {
     boot_command = [
         "<down><wait>",
         "<down><wait>",
-        "<down><wait>",
         "<enter><wait>",
         "<down><wait>",
         "<down><wait>",
