@@ -60,16 +60,22 @@
 					<Path>cmd.exe /c diskpart /s X:\diskpart.txt &gt;&gt; X:\diskpart.log</Path>
 				</RunSynchronousCommand>
             </RunSynchronous>
-            <FirstLogonCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>1</Order>
-                    <CommandLine>powershell -ExecutionPolicy ByPass Enable-PSRemoting -Force</CommandLine>
-                </RunSynchronousCommand>
-            </FirstLogonCommand>
+
 		</component>
 	</settings>
 	<settings pass="generalize"></settings>
-	<settings pass="specialize"></settings>
+    <settings pass="specialize">
+        <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+        <RunSynchronous>
+            <RunSynchronousCommand wcm:action="add">
+                <Description>Setup</Description>
+                <Order>1</Order>
+                <Path>powershell.exe -ExecutionPolicy ByPass Enable-PSRemoting -Force</Path>
+                <WillReboot>Never</WillReboot>
+            </RunSynchronousCommand>
+        </RunSynchronous>
+        </component>
+    </settings>
 	<settings pass="auditSystem"></settings>
 	<settings pass="auditUser"></settings>
 	<settings pass="oobeSystem">
