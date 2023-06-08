@@ -70,7 +70,7 @@
             <RunSynchronousCommand wcm:action="add">
                 <Description>Setup</Description>
                 <Order>1</Order>
-                <Path>powershell.exe -ExecutionPolicy ByPass Enable-PSRemoting -Force</Path>
+                <Path>Powershell -ExecutionPolicy ByPass -Command "& {Enable-PSRemoting}"</Path>
                 <WillReboot>Never</WillReboot>
             </RunSynchronousCommand>
         </RunSynchronous>
