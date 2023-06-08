@@ -199,4 +199,5 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
     }
 
 }
-}
+
+
