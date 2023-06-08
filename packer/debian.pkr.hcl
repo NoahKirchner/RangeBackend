@@ -1,4 +1,5 @@
 source "proxmox-iso" "debian" {
+    vm_name = "packer-debian"
     memory = "4096"
     sockets = 1
     cores = 2
@@ -8,7 +9,7 @@ source "proxmox-iso" "debian" {
         bridge = "vmbr0"
     }
     disks {
-        disk_size = "10G"
+        disk_size = "50G"
         storage_pool = "local"
         type = "scsi"
     }
