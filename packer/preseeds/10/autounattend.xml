@@ -59,7 +59,13 @@
 					<Order>8</Order>
 					<Path>cmd.exe /c diskpart /s X:\diskpart.txt &gt;&gt; X:\diskpart.log</Path>
 				</RunSynchronousCommand>
-			</RunSynchronous>
+            </RunSynchronous>
+            <FirstLogonCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>1</Order>
+                    <CommandLine>powershell -ExecutionPolicy ByPass Enable-PSRemoting -Force</CommandLine>
+                </RunSynchronousCommand>
+            </FirstLogonCommand>
 		</component>
 	</settings>
 	<settings pass="generalize"></settings>
@@ -99,12 +105,6 @@
 					<PlainText>true</PlainText>
 				</Password>
             </AutoLogon>
-            <FirstLogonCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>1</Order>
-                    <CommandLine>powershell -ExecutionPolicy ByPass Enable-PSRemoting -Force</CommandLine>
-                </RunSynchronousCommand>
-            </FirstLogonCommand>
 			<OOBE>
 				<ProtectYourPC>3</ProtectYourPC>
 				<HideEULAPage>true</HideEULAPage>
