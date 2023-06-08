@@ -20,8 +20,8 @@ source "proxmox-iso" "win10" {
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     communicator = "winrm"
     winrm_password = "whitecell"
-    winrm_timeout = "15m"
-    winrm_username = "whitecell"
+    winrm_timeout = "60m"
+    winrm_username = "Administrator"
     template_description = "Windows 10"
     template_name = "win10-template"
     additional_iso_files {
