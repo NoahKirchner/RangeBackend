@@ -64,18 +64,7 @@
 		</component>
 	</settings>
 	<settings pass="generalize"></settings>
-    <settings pass="specialize">
-        <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
-        <RunSynchronous>
-            <RunSynchronousCommand wcm:action="add">
-                <Description>Setup</Description>
-                <Order>1</Order>
-                <Path>Powershell -ExecutionPolicy ByPass -Command "& {Enable-PSRemoting}"</Path>
-                <WillReboot>Never</WillReboot>
-            </RunSynchronousCommand>
-        </RunSynchronous>
-        </component>
-    </settings>
+    <settings pass="specialize"></settings>
 	<settings pass="auditSystem"></settings>
 	<settings pass="auditUser"></settings>
 	<settings pass="oobeSystem">
@@ -115,7 +104,14 @@
 				<ProtectYourPC>3</ProtectYourPC>
 				<HideEULAPage>true</HideEULAPage>
 				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
-			</OOBE>
+            </OOBE>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command "& {Enable-PSRemoting}"</CommandLine>
+                    <Description>"Enables WinRM"</Description>
+                    <Order>1</Order>
+                </SynchronousCommand>
+            </FirstLogonCommands>
 		</component>
 	</settings>
 </unattend>
