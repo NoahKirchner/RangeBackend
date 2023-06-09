@@ -107,7 +107,7 @@
             </OOBE>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command "& {Enable-PSRemoting}"</CommandLine>
+                    <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command "& {winrm quickconfig -q -force}"</CommandLine>
                     <Description>"Enables WinRM"</Description>
                     <Order>1</Order>
                 </SynchronousCommand>
