@@ -105,9 +105,16 @@ resource "proxmox_vm_qemu" "blank_win10" {
 
     disk {
         size = "50G"
-        type = "scsi"
+        type = "ide"
         storage = "local"
     }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
+    }
+
+
 }
 
 resource "proxmox_vm_qemu" "blank_kali" {
@@ -124,6 +131,11 @@ resource "proxmox_vm_qemu" "blank_kali" {
         size = "50G"
         type = "scsi"
         storage = "local"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
     }
 }
 
@@ -142,6 +154,11 @@ resource "proxmox_vm_qemu" "blank_ubuntu_desktop" {
         type = "scsi"
         storage = "local"
     }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
+    }
 }
 
 resource "proxmox_vm_qemu" "blank_win2019_server" {
@@ -156,8 +173,13 @@ resource "proxmox_vm_qemu" "blank_win2019_server" {
 
     disk {
         size = "50G"
-        type = "scsi"
+        type = "ide"
         storage = "local"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
     }
 }
 
@@ -177,4 +199,8 @@ resource "proxmox_vm_qemu" "blank_seconion_standalone" {
         storage = "local"
     }
 
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
+    }
 }
