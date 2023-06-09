@@ -1,7 +1,8 @@
-#!/bin/bash 
+#/bin/bash
 apt-get update -y
 apt-get install -y terraform 
 apt-get install -y packer
+
 (cd ./scripts && ./download-images.sh)
 (cd ./terraform && ./terraform-initial-setup.sh)
 (cd ./terraform && ./deploy-blank-images.sh)
