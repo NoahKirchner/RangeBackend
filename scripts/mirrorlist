@@ -1,5 +1,6 @@
-pfsenseraw.iso https://atxfiles.netgate.com/mirror/downloads/pfSense-CE-2.5.1-RELEASE-amd64.iso.gz be79df534558e6a73f7be2e8643c6ed01580e40b79b255f9bd8e8cca6471fee7
-win10raw.iso https://mirror.mika.moe/files/Win10_21H2_English_x64.iso 7f6538f0eb33c30f0a5cbbf2f39973d4c8dea0d64f69bd18e406012f17a8234f
-kaliraw.iso https://cdimage.kali.org/kali-2023.1/kali-linux-2023.1-installer-netinst-amd64.iso 344a8c948af62f7a288e3dc658291ec3d3cfcdbe5ad1e2f45334740bd6ff481d
-ubuntudesktopraw.iso https://mirror.math.princeton.edu/pub/ubuntu-iso/23.04/ubuntu-23.04-desktop-amd64.iso a8cd6ccff865e17dd136658f6388480c9a5bc57274b29f7d5bd0ed855a9281a5
-winserverraw.iso https://mirror.mahanserver.net/windows/en_windows_server_2019_updated_march_2019_x64_dvd_2ae967ab.iso 42284f69fbb2ce2562605fe3b6e3a6dfc821a29f004d7f3d93216e42e16c1401
+pfsenseraw https://atxfiles.netgate.com/mirror/downloads/pfSense-CE-2.5.1-RELEASE-amd64.iso.gz be79df534558e6a73f7be2e8643c6ed01580e40b79b255f9bd8e8cca6471fee7
+win10raw https://mirror.mika.moe/files/Win10_21H2_English_x64.iso 7f6538f0eb33c30f0a5cbbf2f39973d4c8dea0d64f69bd18e406012f17a8234f
+kaliraw https://cdimage.kali.org/kali-2023.1/kali-linux-2023.1-installer-netinst-amd64.iso 344a8c948af62f7a288e3dc658291ec3d3cfcdbe5ad1e2f45334740bd6ff481d
+ubuntudesktopraw https://mirror.math.princeton.edu/pub/ubuntu-iso/23.04/ubuntu-23.04-desktop-amd64.iso a8cd6ccff865e17dd136658f6388480c9a5bc57274b29f7d5bd0ed855a9281a5
+winserverraw https://mirror.mahanserver.net/windows/en_windows_server_2019_updated_march_2019_x64_dvd_2ae967ab.iso 42284f69fbb2ce2562605fe3b6e3a6dfc821a29f004d7f3d93216e42e16c1401
+seconionraw https://download.securityonion.net/file/securityonion/securityonion-2.3.250-20230519.iso 748E9740077BCCAFDC67D15BA2D6A4B0539A29E4527715973E5BDDE5DCF565AD

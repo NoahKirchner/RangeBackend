@@ -4,9 +4,8 @@
 	<lastchange></lastchange>
 	<system>
 		<optimization>normal</optimization>
-		<hostname>pfSense</hostname>
+		<hostname>WAN-RTR</hostname>
 		<domain>home.arpa</domain>
-		<dnsallowoverride>on</dnsallowoverride>
 		<group>
 			<name>all</name>
 			<description><![CDATA[All Users]]></description>
@@ -39,6 +38,8 @@
 			<loginautocomplete></loginautocomplete>
 			<ssl-certref>645e63a1dc166</ssl-certref>
 			<dashboardcolumns>2</dashboardcolumns>
+			<webguicss>pfSense.css</webguicss>
+			<logincss>1e3f75;</logincss>
 		</webgui>
 		<disablenatreflection>yes</disablenatreflection>
 		<disablesegmentationoffloading></disablesegmentationoffloading>
@@ -54,6 +55,10 @@
 		<hn_altq_enable></hn_altq_enable>
 		<ssh></ssh>
 		<timezone>Etc/UTC</timezone>
+		<pkg_repo_conf_path>/usr/local/share/pfSense/pkg/repos/pfSense-repo.conf</pkg_repo_conf_path>
+		<language>en_US</language>
+		<dnsallowoverride></dnsallowoverride>
+		<dns1host></dns1host>
 	</system>
 	<interfaces>
 		<wan>
@@ -61,7 +66,7 @@
 			<if>vtnet0</if>
 			<descr><![CDATA[MGMT]]></descr>
 			<spoofmac></spoofmac>
-			<ipaddr>192.168.100.254</ipaddr>
+			<ipaddr>192.168.100.252</ipaddr>
 			<subnet>24</subnet>
 		</wan>
 		<lan>
@@ -105,10 +110,11 @@
 			<descr><![CDATA[Internet]]></descr>
 			<if>vtnet6</if>
 			<enable></enable>
-			<ipaddr>dhcp</ipaddr>
-			<dhcphostname></dhcphostname>
 			<alias-address></alias-address>
 			<alias-subnet>32</alias-subnet>
+			<spoofmac></spoofmac>
+			<ipaddr>dhcp</ipaddr>
+			<dhcphostname></dhcphostname>
 			<dhcprejectfrom></dhcprejectfrom>
 			<adv_dhcp_pt_timeout></adv_dhcp_pt_timeout>
 			<adv_dhcp_pt_retry></adv_dhcp_pt_retry>
@@ -124,7 +130,6 @@
 			<adv_dhcp_config_advanced></adv_dhcp_config_advanced>
 			<adv_dhcp_config_file_override></adv_dhcp_config_file_override>
 			<adv_dhcp_config_file_override_path></adv_dhcp_config_file_override_path>
-			<spoofmac></spoofmac>
 		</opt5>
 		<opt6>
 			<descr><![CDATA[SECONION]]></descr>
@@ -188,7 +193,77 @@
 			<uefihttpboot></uefihttpboot>
 			<rootpath></rootpath>
 			<numberoptions></numberoptions>
+			<dhcpleaseinlocaltime></dhcpleaseinlocaltime>
 		</lan>
+		<opt3>
+			<range>
+				<from>192.168.5.2</from>
+				<to>192.168.5.100</to>
+			</range>
+			<enable></enable>
+			<failover_peerip></failover_peerip>
+			<defaultleasetime></defaultleasetime>
+			<maxleasetime></maxleasetime>
+			<netmask></netmask>
+			<gateway></gateway>
+			<domain></domain>
+			<domainsearchlist></domainsearchlist>
+			<ddnsdomain></ddnsdomain>
+			<ddnsdomainprimary></ddnsdomainprimary>
+			<ddnsdomainsecondary></ddnsdomainsecondary>
+			<ddnsdomainkeyname></ddnsdomainkeyname>
+			<ddnsdomainkeyalgorithm>hmac-md5</ddnsdomainkeyalgorithm>
+			<ddnsdomainkey></ddnsdomainkey>
+			<mac_allow></mac_allow>
+			<mac_deny></mac_deny>
+			<ddnsclientupdates>allow</ddnsclientupdates>
+			<tftp></tftp>
+			<ldap></ldap>
+			<nextserver></nextserver>
+			<filename></filename>
+			<filename32></filename32>
+			<filename64></filename64>
+			<filename32arm></filename32arm>
+			<filename64arm></filename64arm>
+			<uefihttpboot></uefihttpboot>
+			<rootpath></rootpath>
+			<numberoptions></numberoptions>
+			<dhcpleaseinlocaltime></dhcpleaseinlocaltime>
+		</opt3>
+		<wan>
+			<range>
+				<from>192.168.100.2</from>
+				<to>192.168.100.200</to>
+			</range>
+			<enable></enable>
+			<failover_peerip></failover_peerip>
+			<defaultleasetime></defaultleasetime>
+			<maxleasetime></maxleasetime>
+			<netmask></netmask>
+			<gateway></gateway>
+			<domain></domain>
+			<domainsearchlist></domainsearchlist>
+			<ddnsdomain></ddnsdomain>
+			<ddnsdomainprimary></ddnsdomainprimary>
+			<ddnsdomainsecondary></ddnsdomainsecondary>
+			<ddnsdomainkeyname></ddnsdomainkeyname>
+			<ddnsdomainkeyalgorithm>hmac-md5</ddnsdomainkeyalgorithm>
+			<ddnsdomainkey></ddnsdomainkey>
+			<mac_allow></mac_allow>
+			<mac_deny></mac_deny>
+			<ddnsclientupdates>allow</ddnsclientupdates>
+			<tftp></tftp>
+			<ldap></ldap>
+			<nextserver></nextserver>
+			<filename></filename>
+			<filename32></filename32>
+			<filename64></filename64>
+			<filename32arm></filename32arm>
+			<filename64arm></filename64arm>
+			<uefihttpboot></uefihttpboot>
+			<rootpath></rootpath>
+			<numberoptions></numberoptions>
+		</wan>
 	</dhcpd>
 	<dhcpdv6></dhcpdv6>
 	<snmpd>
@@ -210,7 +285,7 @@
 			<tracker>1684861279</tracker>
 			<type>pass</type>
 			<interface>wan</interface>
-			<ipprotocol>inet</ipprotocol>
+			<ipprotocol>inet46</ipprotocol>
 			<tag></tag>
 			<tagged></tagged>
 			<max></max>
@@ -232,7 +307,7 @@
 				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
 			</created>
 			<updated>
-				<time>1684861937</time>
+				<time>1685024630</time>
 				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
 			</updated>
 		</rule>
@@ -264,10 +339,41 @@
 		</rule>
 		<rule>
 			<id></id>
+			<tracker>1685454814</tracker>
+			<type>pass</type>
+			<interface>opt3</interface>
+			<ipprotocol>inet46</ipprotocol>
+			<tag></tag>
+			<tagged></tagged>
+			<max></max>
+			<max-src-nodes></max-src-nodes>
+			<max-src-conn></max-src-conn>
+			<max-src-states></max-src-states>
+			<statetimeout></statetimeout>
+			<statetype><![CDATA[keep state]]></statetype>
+			<os></os>
+			<source>
+				<any></any>
+			</source>
+			<destination>
+				<any></any>
+			</destination>
+			<descr></descr>
+			<updated>
+				<time>1685454814</time>
+				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
+			</updated>
+			<created>
+				<time>1685454814</time>
+				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
+			</created>
+		</rule>
+		<rule>
+			<id></id>
 			<tracker>1684861994</tracker>
 			<type>pass</type>
 			<interface>opt5</interface>
-			<ipprotocol>inet</ipprotocol>
+			<ipprotocol>inet46</ipprotocol>
 			<tag></tag>
 			<tagged></tagged>
 			<max></max>
@@ -289,8 +395,8 @@
 				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
 			</created>
 			<updated>
-				<time>1684863101</time>
-				<username><![CDATA[admin@10.0.0.81 (Local Database)]]></username>
+				<time>1685454797</time>
+				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
 			</updated>
 		</rule>
 		<rule>
@@ -329,7 +435,7 @@
 			<tracker>1684864808</tracker>
 			<type>pass</type>
 			<interface>opt7</interface>
-			<ipprotocol>inet</ipprotocol>
+			<ipprotocol>inet46</ipprotocol>
 			<tag></tag>
 			<tagged></tagged>
 			<max></max>
@@ -346,14 +452,14 @@
 				<any></any>
 			</destination>
 			<descr></descr>
-			<updated>
-				<time>1684864808</time>
-				<username><![CDATA[admin@10.0.0.81 (Local Database)]]></username>
-			</updated>
 			<created>
 				<time>1684864808</time>
 				<username><![CDATA[admin@10.0.0.81 (Local Database)]]></username>
 			</created>
+			<updated>
+				<time>1685024648</time>
+				<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
+			</updated>
 		</rule>
 		<rule>
 			<id></id>
@@ -392,6 +498,7 @@
 			<opt6></opt6>
 			<opt7></opt7>
 			<opt9></opt9>
+			<opt3></opt3>
 		</separator>
 	</filter>
 	<ipsec>
@@ -500,8 +607,7 @@
 		<period>10</period>
 	</widgets>
 	<openvpn></openvpn>
-	<dnshaper>
-	</dnshaper>
+	<dnshaper></dnshaper>
 	<unbound>
 		<enable></enable>
 		<dnssec></dnssec>
@@ -515,11 +621,21 @@
 	<vlans></vlans>
 	<qinqs></qinqs>
 	<revision>
-		<time>1684868363</time>
-		<description><![CDATA[admin@10.0.0.81 (Local Database): Firewall: Rules - saved/edited a firewall rule.]]></description>
-		<username><![CDATA[admin@10.0.0.81 (Local Database)]]></username>
+		<time>1685546195</time>
+		<description><![CDATA[admin@192.168.100.101 (Local Database): DHCP Server - Settings changed for interface WAN]]></description>
+		<username><![CDATA[admin@192.168.100.101 (Local Database)]]></username>
 	</revision>
 	<gateways>
+		<gateway_item>
+			<interface>opt5</interface>
+			<gateway>dynamic</gateway>
+			<name>INTERNET_DHCP</name>
+			<weight>1</weight>
+			<ipprotocol>inet</ipprotocol>
+			<descr><![CDATA[Interface INTERNET_DHCP Gateway]]></descr>
+		</gateway_item>
+		<defaultgw4>INTERNET_DHCP</defaultgw4>
+		<defaultgw6></defaultgw6>
 	</gateways>
 	<dnsmasq></dnsmasq>
 	<ntpd></ntpd>
@@ -537,8 +653,7 @@
 		</system>
 	</wizardtemp>
 	<ppps></ppps>
-	<shaper>
-	</shaper>
+	<shaper></shaper>
 	<installedpackages>
 		<package>
 			<name>FRR</name>
@@ -751,9 +866,9 @@
 				<descr></descr>
 				<networktype></networktype>
 				<passive></passive>
-				<mtuignore></mtuignore>
+				<mtuignore>on</mtuignore>
 				<metric></metric>
-				<interfacearea></interfacearea>
+				<interfacearea>0.0.0.0</interfacearea>
 				<acceptfilter></acceptfilter>
 				<authtype></authtype>
 				<password></password>
@@ -792,6 +907,25 @@
 				<service_force_restart></service_force_restart>
 			</config>
 		</frr>
+		<frrospfdareas>
+			<config>
+				<area>0.0.0.0</area>
+				<descr></descr>
+				<type>none</type>
+				<defaultcost></defaultcost>
+				<shortcut>default</shortcut>
+				<authtype></authtype>
+				<row>
+					<rangeprefix></rangeprefix>
+					<rangecost></rangecost>
+					<subprefix></subprefix>
+				</row>
+				<exportlist>none</exportlist>
+				<importlist>none</importlist>
+				<filterlist_out>none</filterlist_out>
+				<filterlist_in>none</filterlist_in>
+			</config>
+		</frrospfdareas>
 	</installedpackages>
 	<sysctl>
 		<item>
@@ -800,4 +934,9 @@
 			<descr><![CDATA[Maximum socket buffer size - set by FRR package]]></descr>
 		</item>
 	</sysctl>
+	<nat>
+		<outbound>
+			<mode>automatic</mode>
+		</outbound>
+	</nat>
 </pfsense>

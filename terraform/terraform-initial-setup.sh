@@ -1,6 +1,7 @@
 #!/bin/bash 
 
-password=$1
+echo "Enter the terraform API password you would like to use:"
+read password
 if [ -z "$password" ]; then 
     echo "Please select a password for the terraform user account to use. The syntax of this script is terraformsetup.sh <password>";
     exit
@@ -25,6 +26,10 @@ echo -n 'PM_PASSWORD="' >> credentials.tfvars
 echo -n $password >> credentials.tfvars
 echo  '"' >> credentials.tfvars
 
-terraform init
+(cd ./core-topology && terraform init)
 
-echo "MAKE ME PRETTIER"
+(cd ./init-topology && terraform init)
+
+(cd ./range-topology && terraform init)
+
+

@@ -7,7 +7,7 @@ while read -r name address sha256hash; do
     echo -e $okay "Starting $name download from $address."
     wget $address -qO ../images/$name.iso
     echo -e $okay "ISO: $name downloaded."
-    if sha256sum ../images/$name | grep -Ei $sha256hash;
+    if sha256sum ../images/$name.iso | grep -Ei $sha256hash;
         then 
         echo -e $okay "Sha256 checksums match."
         else
@@ -18,8 +18,9 @@ while read -r name address sha256hash; do
         fi
     fi 
     if echo "$address" | grep -Ei '.gz'; then
-        mv ../images/$name "../images/$name.gz";
-        gzip -d ../images/$name 
+        mv ../images/$name.iso "../images/$name.gz";
+        gzip -d ../images/$name.gz
+        mv ../images/$name ../images/$name.iso
     fi 
 
 done < "./mirrorlist"

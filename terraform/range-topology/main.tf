@@ -30,11 +30,11 @@ provider "proxmox" {
 
 }
 
-resource "proxmox_vm_qemu" "win2019_server" {
+resource "proxmox_vm_qemu" "win2019_server_dc" {
 
 
     count = 1
-    name = "win2019-server-tf-${count.index}"
+    name = "win2019-dc-tf-${count.index}"
     target_node = "r730"
     clone = "WindowsServer2019"
     full_clone = true
@@ -52,15 +52,15 @@ resource "proxmox_vm_qemu" "win2019_server" {
     }
 
     network {
-        model = "virtio"
-        bridge = "vmbr2"
+        model = "e1000"
+        bridge = "vmbr3"
     }
 }
 
 
 resource "proxmox_vm_qemu" "win10_pro" {
  
-    count = 1
+    count = 4
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "Windows10Pro"
@@ -79,8 +79,35 @@ resource "proxmox_vm_qemu" "win10_pro" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
+    }
+
+}
+
+resource "proxmox_vm_qemu" "win10_pro_admin" {
+ 
+    count = 1
+    name = "win10-pro-admin-tf-${count.index}"
+    target_node = "r730"
+    clone = "Windows10Pro"
+    full_clone = true
+    os_type = "win10"
+    sockets = 2
+    cores = 2
+    memory = "4096"
+    scsihw = "virtio-scsi-pci"
+    oncreate = true 
+
+    disk {
+        size = "50G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "e1000"
+        bridge = "vmbr4"
     }
 
 }
@@ -88,7 +115,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
 
 resource "proxmox_vm_qemu" "kali" {
 
-    count = 1
+    count = 2
 
     name = "kali-tf-${count.index}"
     target_node = "r730"
@@ -108,19 +135,19 @@ resource "proxmox_vm_qemu" "kali" {
     }
 
     network {
-        model = "virtio"
-        bridge = "vmbr2"
+        model = "e1000"
+        bridge = "vmbr10"
     }
 
 
 }
 
 
-resource "proxmox_vm_qemu" "ubuntu_desktop" {
+resource "proxmox_vm_qemu" "ubuntu_orchestration" {
 
     count = 1
 
-    name = "ubuntu-desktop-tf-${count.index}"
+    name = "ubuntu-orchestration-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuHost"
     full_clone = true
@@ -139,7 +166,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
     network {
         model = "virtio"
-        bridge = "vmbr2"
+        bridge = "vmbr0"
     }
 
 
@@ -147,7 +174,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
 
 resource "proxmox_vm_qemu" "ubuntu_server" {
-    count = 1
+    count = 0
 
     name = "ubuntu-server-tf-${count.index}"
     target_node = "r730"
@@ -173,29 +200,4 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
 
 }
 
-resource "proxmox_vm_qemu" "seconion_standalone" {
-    count = 1
 
-    name = "seconion-standalone-tf-${count.index}"
-    target_node = "r730"
-    clone = "SecurityOnion"
-    full_clone = true 
-    os_type = "linux"
-    sockets = 4
-    cores = 4
-    memory = "32786"
-    scsihw = "virtio-scsi-pci"
-    oncreate = true
-
-    disk {
-        size = "500G"
-        type = "scsi"
-        storage = "local"
-    }
-
-    network {
-        model = "virtio"
-        bridge = "vmbr2"
-    }
-
-}

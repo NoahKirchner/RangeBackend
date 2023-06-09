@@ -1,9 +1,0 @@
----
-- name: Install basic Windows features
-  win_feature:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - TelnetClient
-    - PowerShell-ISE
-    - SMB1Protocol
