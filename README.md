@@ -118,7 +118,7 @@ Now log into security onion and configure it however you see fit. Have fun!
 
 Now that the core infrastructure is deployed, you can run the `deploy-range.sh` script in `terraform/` to deploy the range itself. If this does not work, navigate to `terraform/range-topology` and run `terraform apply --var-file=../credentials.tfvars` and wait the ~10 or so minutes for the hosts to deploy. The routers should assign them IP addresses via DHCP if they are attached to certain bridges, or on others you may need to assign static IP addresses. Congratulations, you now have a working range!
 
-9 ### Orchestration
+9. ### Orchestration
 
 Orchestration is a work in progress, but there are a number of scripts to use in /scripts/orchestration that you may find useful for configuring things such as domain controllers or workstations. Eventually their deployment will be automated, but for now it is up to you to figure out how to do that. We did most of the work for you up to this point, so enjoy!
 
