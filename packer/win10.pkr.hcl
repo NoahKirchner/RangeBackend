@@ -22,6 +22,7 @@ source "proxmox-iso" "win10" {
     winrm_password = "whitecell"
     winrm_timeout = "60m"
     winrm_username = "Administrator"
+    winrm_port = "5985"
     template_description = "Windows 10"
     template_name = "win10-template"
     additional_iso_files {
