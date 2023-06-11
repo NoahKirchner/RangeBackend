@@ -14,7 +14,7 @@ fi
 pveum user delete terraform-prov@pve
 pveum role delete TerraformProv
 
-pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt VM.Console Datastore.AllocateTemplate Datastore.AllocateSpace Datastore.Audit Pool.Allocate Pool.Audit"
+pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt VM.Console Datastore.AllocateTemplate Datastore.Allocate Datastore.Audit Pool.Allocate Pool.Audit"
 pveum user add terraform-prov@pve --password $password 
 pveum aclmod / -user terraform-prov@pve -role TerraformProv
 
