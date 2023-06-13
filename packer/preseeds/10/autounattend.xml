@@ -170,6 +170,11 @@
                      <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command "& {Start-Service -Name WinRM}"</CommandLine>
                     <Description>"Starts WinRM"</Description>
                     <Order>13</Order>
+                 <SynchronousCommand wcm:action="add">
+                     <CommandLine>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command "& {New-WSManInstance winrm/config/listener -SelectorSet '@{Address="*";Transport="http""}'}"</CommandLine>
+                    <Description>"Starts WinRM Listener"</Description>
+                    <Order>14</Order>
+ 
                 </SynchronousCommand>
             </FirstLogonCommands>
 		</component>
