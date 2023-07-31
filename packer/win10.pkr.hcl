@@ -1,7 +1,7 @@
 source "proxmox-iso" "win10" {
     memory = "8192"
-    sockets = 3
-    cores = 2
+    sockets = 2
+    cores = 4
     cpu_type = "host"
     os = "win10"
     network_adapters {
