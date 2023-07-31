@@ -19,9 +19,9 @@ source "proxmox-iso" "win10" {
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     communicator = "ssh"
-    ssh_password = "whitecell"
+    password = "whitecell"
     ssh_timeout = "60m"
-    ssh_username = "Administrator"
+    username = "Administrator"
     template_description = "Windows 10"
     template_name = "win10-template"
     additional_iso_files {
