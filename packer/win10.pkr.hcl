@@ -19,6 +19,7 @@ source "proxmox-iso" "win10" {
     node = "r730"
     proxmox_url = "https://192.168.100.2:8006/api2/json"
     communicator = "ssh"
+    ssh_host = "192.168.100.210"
     ssh_password = "whitecell"
     ssh_timeout = "60m"
     ssh_username = "whitecell"
