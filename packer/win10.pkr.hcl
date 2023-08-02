@@ -21,7 +21,7 @@ source "proxmox-iso" "win10" {
     communicator = "ssh"
     ssh_password = "whitecell"
     ssh_timeout = "60m"
-    ssh_username = "Administrator"
+    ssh_username = "whitecell"
     template_description = "Windows 10"
     template_name = "win10-template"
     additional_iso_files {
