@@ -14,9 +14,12 @@ fi
 pveum user delete terraform-prov@pve
 pveum role delete TerraformProv
 
+# Clean this up later, I am fairly sure it is redundant
 pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt VM.Console Datastore.AllocateTemplate Datastore.Allocate Datastore.Audit Pool.Allocate Pool.Audit"
 pveum user add terraform-prov@pve --password $password 
-pveum aclmod / -user terraform-prov@pve -role TerraformProv
+pveum aclmod / -user terraform-prov@pve -role TerraformProv 
+pveum aclmod / -user terraform-prov@pve -role Administrator
+pveum aclmod /storage/local -user terraform-prov@pve -role Administrator
 
 touch credentials.tfvars
 
