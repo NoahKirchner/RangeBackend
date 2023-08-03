@@ -12,4 +12,4 @@ $service = $args[3] # The type of service you want to be operating, ex. http
 $port = $args[4] # The port you want the service account to be operating on, ex. 80
 
 net user $username $password /ADD /DOMAIN
-setspn -s $service/$hostname.$domain:$port $username
+setspn -s $service/$hostname.$domain`:$port $username
