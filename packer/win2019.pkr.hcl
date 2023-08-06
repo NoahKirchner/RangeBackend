@@ -32,7 +32,12 @@ source "proxmox-iso" "win2019" {
         cd_label = "windata"
         unmount = true
     }
-    boot_wait = "10s"
+    boot_wait = "60s"
+
+    boot_command = [
+    "<down><wait>",
+    "<enter><wait>",
+    ]
 }
 
 build {
