@@ -1,9 +1,9 @@
-source "proxmox-iso" "win10" {
+source "proxmox-iso" "win2019" {
     memory = "8192"
     sockets = 2
     cores = 4
     cpu_type = "host"
-    os = "win10"
+    os = "other"
     network_adapters {
         model = "e1000"
         bridge = "vmbr0"
