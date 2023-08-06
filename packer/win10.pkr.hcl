@@ -26,6 +26,7 @@ source "proxmox-iso" "win10" {
     qemu_agent = false
     template_description = "Windows 10"
     template_name = "win10-template"
+    unmount_iso = true
     additional_iso_files {
         iso_storage_pool = "local"
         cd_files = ["preseeds/10/autounattend.xml"]
