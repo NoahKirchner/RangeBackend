@@ -128,7 +128,7 @@ Notes: Enter your comments here...
     <LogonCount>1</LogonCount>
     <Password>
         <Value>whitecell></Value>
-        <PlainText>true</Plaintext>
+        <PlainText>true</PlainText>
     </Password>
 </AutoLogon>
 <OOBE>
