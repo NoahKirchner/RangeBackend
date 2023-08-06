@@ -106,14 +106,30 @@ Notes: Enter your comments here...
 </settings>
 <settings pass="oobeSystem">
 <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <UserAccounts>
+        <AdministratorPassword>
+            <Value>whitecell</Value>
+            <PlainText>true</PlainText>
+        </AdministratorPassword>
+        <LocalAccounts>
+            <LocalAccount wcm:action="add">
+                <Name>whitecell</Name>
+                <Group>Administrators</Group>
+                <Password>
+                    <Value>whitecell</Value>
+                    <PlainText>true</PlainText>
+                </Password>
+            </LocalAccount>
+        </LocalAccounts>
+    </UserAccounts>
 <AutoLogon>
-<Password>
-<Value>whitecell</Value>
-<PlainText>true</PlainText>
-</Password>
-<Enabled>true</Enabled>
-<Username>whitecell</Username>
-<LogonCount>1</LogonCount>
+    <Username>whitecell</Username>
+    <Enabled>true</Enabled>
+    <LogonCount>1</LogonCount>
+    <Password>
+        <Value>whitecell></Value>
+        <PlainText>true</Plaintext>
+    </Password>
 </AutoLogon>
 <OOBE>
 <HideEULAPage>true</HideEULAPage>
