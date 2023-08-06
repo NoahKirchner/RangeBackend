@@ -158,7 +158,7 @@ Notes: Enter your comments here...
 <RequiresUserInput>true</RequiresUserInput>
 </SynchronousCommand>
 <SynchronousCommand wcm:action="add">
-<CommandLine>cmd.exe /c netsh interface ipv4 set address name="Ethernet" static 192.168.100.210 255.255.255.0 192.168.100.1</CommandLine>
+<CommandLine>cmd.exe /c netsh interface ipv4 set address name="Ethernet" static 192.168.100.220 255.255.255.0 192.168.100.1</CommandLine>
 <Description>Sets a static IP address so that packer can SSH into it</Description>
 <Order>12</Order>
 <RequiresUserInput>true</RequiresUserInput>
