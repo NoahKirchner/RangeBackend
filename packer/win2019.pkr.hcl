@@ -26,6 +26,7 @@ source "proxmox-iso" "win2019" {
     qemu_agent = false
     template_description = "Windows Server 2019"
     template_name = "win2019-template"
+    unmount_iso = true
     additional_iso_files {
         iso_storage_pool = "local"
         cd_files = ["preseeds/2019/autounattend.xml"]
