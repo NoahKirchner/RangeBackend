@@ -114,7 +114,7 @@ resource "proxmox_vm_qemu" "win10_pro_admin" {
     count = 1
     name = "win10-pro-admin-tf-${count.index}"
     target_node = "r730"
-    clone = "Windows10Pro"
+    clone = "WIN10-MASTER-1.01"
     full_clone = true
     os_type = "win10"
     sockets = 2
