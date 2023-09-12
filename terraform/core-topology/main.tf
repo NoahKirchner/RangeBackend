@@ -57,6 +57,31 @@ resource "proxmox_vm_qemu" "seconion_standalone" {
 
 }
 
+resource "proxmox_vm_qemu" "domain_controller" {
+    count = 1
+    name = "win2019-dc-tf-${count.index}"
+    target_node = "r730"
+    clone = "DomainController"
+    full_clone = true
+    os_type = "win10"
+    sockets = 2
+    cores = 4
+    memory = "65536"
+    scsihw = "virtio-scsi-pci"
+    oncreate = true 
+
+    disk {
+        size = "100G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "e1000"
+        bridge = "vmbr5"
+    }
+}
+
 resource "proxmox_vm_qemu" "core_router" {
     name = "core-router-tf"
     target_node = "r730"
