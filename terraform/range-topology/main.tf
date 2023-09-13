@@ -87,7 +87,7 @@ resource "proxmox_vm_qemu" "web_server" {
 resource "proxmox_vm_qemu" "win10_pro" {
  
     count = 5
-    vmid = "21${count.index}"
+    vmid = "22${count.index}"
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "WIN10-MASTER-1.01"
@@ -110,12 +110,25 @@ resource "proxmox_vm_qemu" "win10_pro" {
         bridge = "vmbr2"
     }
 
+    connection {
+        type = "winrm"
+        user = "defender"
+        password = "1qaz2wsx!QAZ@WSX"
+        host = self.public_ip
+    }
+
+    provisioner "remote-exec" {
+        inline = [
+            "shutdown /r"
+        ]
+    }
+
 }
 
 resource "proxmox_vm_qemu" "win10_pro_admin" {
  
     count = 1
-    vmid = "22${count.index}"
+    vmid = "21${count.index}"
     name = "win10-pro-admin-tf-${count.index}"
     target_node = "r730"
     clone = "WIN10-MASTER-1.01"
@@ -143,7 +156,7 @@ resource "proxmox_vm_qemu" "win10_pro_admin" {
 
 resource "proxmox_vm_qemu" "kali" {
 
-    count = 3
+    count = 1
     vmid = "100${count.index}"
     name = "kali-tf-${count.index}"
     target_node = "r730"
