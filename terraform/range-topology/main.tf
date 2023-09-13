@@ -117,10 +117,8 @@ resource "proxmox_vm_qemu" "win10_pro" {
         host = self.public_ip
     }
 
-    provisioner "remote-exec" {
-        inline = [
-            "shutdown /r"
-        ]
+    provisioner "local-exec" {
+        command = "qm reboot ${self.vmid}"
     }
 
 }
