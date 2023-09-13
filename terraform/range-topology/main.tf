@@ -110,13 +110,6 @@ resource "proxmox_vm_qemu" "win10_pro" {
         bridge = "vmbr2"
     }
 
-    connection {
-        type = "winrm"
-        user = "defender"
-        password = "1qaz2wsx!QAZ@WSX"
-        host = self.public_ip
-    }
-
     provisioner "local-exec" {
         command = "qm reboot ${self.vmid}"
     }
