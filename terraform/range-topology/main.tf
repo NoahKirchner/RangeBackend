@@ -111,7 +111,8 @@ resource "proxmox_vm_qemu" "win10_pro" {
     }
 
     provisioner "local-exec" {
-        command = "qm reboot ${self.vmid}"
+        command = "qm stop ${self.vmid}"
+        command = "qm start ${self.vmid}"
     }
 
 }
