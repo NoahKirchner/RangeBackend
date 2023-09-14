@@ -30,33 +30,6 @@ provider "proxmox" {
 
 }
 
-resource "proxmox_vm_qemu" "seconion_standalone" {
-    count = 1
-
-    name = "seconion-standalone-tf-${count.index}"
-    target_node = "r730"
-    clone = "SecurityOnion"
-    full_clone = true 
-    os_type = "linux"
-    sockets = 4
-    cores = 4
-    memory = "32786"
-    scsihw = "virtio-scsi-pci"
-    oncreate = true
-
-    disk {
-        size = "500G"
-        type = "scsi"
-        storage = "local"
-    }
-
-    network {
-        model = "e1000"
-        bridge = "vmbr7"
-    }
-
-}
-
 resource "proxmox_vm_qemu" "domain_controller" {
     count = 1
     name = "win2019-dc-tf-${count.index}"

@@ -202,4 +202,29 @@ resource "proxmox_vm_qemu" "analyst_workstation" {
 
 }
 
+resource "proxmox_vm_qemu" "securityonion_sensor" {
+    
+    count = 1
+    vmid = "72${count.index}"
+    name = "seconion-sensor-tf-${count.index}"
+    target_node = "r730"
+    clone = "SecurityOnion1.0"
+    full_clone = true
+    os_type = "linux"
+    sockets = 4
+    cores = 4
+    memory = "32786"
+    scsihw = "virtio-scsi-pci"
+    oncreate = true
 
+    disk {
+        size = "500G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "e1000"
+        vmbr7 = "vmbr7"
+    }
+}
