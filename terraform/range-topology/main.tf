@@ -225,6 +225,6 @@ resource "proxmox_vm_qemu" "securityonion_sensor" {
 
     network {
         model = "e1000"
-        vmbr7 = "vmbr7"
+        bridge = "vmbr7"
     }
 }
