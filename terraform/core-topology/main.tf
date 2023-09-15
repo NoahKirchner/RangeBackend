@@ -56,7 +56,7 @@ resource "proxmox_vm_qemu" "domain_controller" {
 }
 
 resource "proxmox_vm_qemu" "core_router" {
-    name = "core-router-tf"
+    name = "pfsense-core-router-tf"
     target_node = "r730"
     clone = "CORE-PFSENSE"
     full_clone = true
@@ -73,13 +73,15 @@ resource "proxmox_vm_qemu" "core_router" {
         storage = "local"
     }
 
+
+    // I know this is AIDS but this matches the order of the bridges
+    // in the template. For example, device net0 is the same as the first 
+    // device in the list below and is vmbr0, while net1 is vmbr2.
+    // If you need to change this, make sure that the list under hardware
+    // in proxmox matches your order for the network devices.
     network {
         model = "virtio"
         bridge = "vmbr0"
-    }
-    network {
-        model = "virtio"
-        bridge = "vmbr1"
     }
     network {
         model = "virtio"
@@ -103,6 +105,10 @@ resource "proxmox_vm_qemu" "core_router" {
     }
     network {
         model = "virtio"
+        bridge = "vmbr1"
+    }
+    network {
+        model = "virtio"
         bridge = "vmbr7"
     }
     network {
@@ -117,12 +123,16 @@ resource "proxmox_vm_qemu" "core_router" {
         model = "virtio"
         bridge = "vmbr10"
     }
+    network {
+        model = "virtio"
+        bridge = "vmbr12"
+    }
 
 
 }
 
 resource "proxmox_vm_qemu" "dmz_router" {
-    name = "dmz-router-tf"
+    name = "pfsense-dmz-router-tf"
     target_node = "r730"
     clone = "DMZ-PFSENSE"
     full_clone = true
@@ -139,13 +149,14 @@ resource "proxmox_vm_qemu" "dmz_router" {
         storage = "local"
     }
 
+    // I know this is AIDS but this matches the order of the bridges
+    // in the template. For example, device net0 is the same as the first 
+    // device in the list below and is vmbr0, while net1 is vmbr2.
+    // If you need to change this, make sure that the list under hardware
+    // in proxmox matches your order for the network devices.
     network {
         model = "virtio"
         bridge = "vmbr0"
-    }
-    network {
-        model = "virtio"
-        bridge = "vmbr1"
     }
     network {
         model = "virtio"
@@ -169,6 +180,10 @@ resource "proxmox_vm_qemu" "dmz_router" {
     }
     network {
         model = "virtio"
+        bridge = "vmbr1"
+    }
+    network {
+        model = "virtio"
         bridge = "vmbr7"
     }
     network {
@@ -183,12 +198,16 @@ resource "proxmox_vm_qemu" "dmz_router" {
         model = "virtio"
         bridge = "vmbr10"
     }
+    network {
+        model = "virtio"
+        bridge = "vmbr12"
+    }
 
 
 }
 
 resource "proxmox_vm_qemu" "wan_router" {
-    name = "wan-router-tf"
+    name = "pfsense-wan-router-tf"
     target_node = "r730"
     clone = "WAN-PFSENSE"
     full_clone = true
@@ -205,13 +224,14 @@ resource "proxmox_vm_qemu" "wan_router" {
         storage = "local"
     }
 
+    // I know this is AIDS but this matches the order of the bridges
+    // in the template. For example, device net0 is the same as the first 
+    // device in the list below and is vmbr0, while net1 is vmbr2.
+    // If you need to change this, make sure that the list under hardware
+    // in proxmox matches your order for the network devices.
     network {
         model = "virtio"
         bridge = "vmbr0"
-    }
-    network {
-        model = "virtio"
-        bridge = "vmbr1"
     }
     network {
         model = "virtio"
@@ -235,6 +255,10 @@ resource "proxmox_vm_qemu" "wan_router" {
     }
     network {
         model = "virtio"
+        bridge = "vmbr1"
+    }
+    network {
+        model = "virtio"
         bridge = "vmbr7"
     }
     network {
@@ -249,7 +273,11 @@ resource "proxmox_vm_qemu" "wan_router" {
         model = "virtio"
         bridge = "vmbr10"
     }
-    
+    network {
+        model = "virtio"
+        bridge = "vmbr12"
+    }
+
 
 }
 
