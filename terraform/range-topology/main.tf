@@ -34,7 +34,7 @@ resource "proxmox_vm_qemu" "mail_server" {
 
 
     count = 1
-    vmid = "31${count.index}"
+    vmid = "131${count.index}"
     name = "win2019-mail-tf-${count.index}"
     target_node = "r730"
     clone = "EmailServer"
@@ -61,7 +61,7 @@ resource "proxmox_vm_qemu" "mail_server" {
 resource "proxmox_vm_qemu" "web_server" {
 
     count = 1
-    vmid = "32${count.index}"
+    vmid = "132${count.index}"
     name = "debian-webserver-tf-${count.index}"
     target_node = "r730"
     clone = "Web-Server"
@@ -87,7 +87,7 @@ resource "proxmox_vm_qemu" "web_server" {
 resource "proxmox_vm_qemu" "win10_pro" {
  
     count = 5
-    vmid = "22${count.index}"
+    vmid = "122${count.index}"
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "WIN10-MASTER-1.01"
@@ -119,7 +119,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
 resource "proxmox_vm_qemu" "win10_pro_admin" {
  
     count = 1
-    vmid = "21${count.index}"
+    vmid = "121${count.index}"
     name = "win10-pro-admin-tf-${count.index}"
     target_node = "r730"
     clone = "WIN10-MASTER-1.01"
@@ -148,7 +148,7 @@ resource "proxmox_vm_qemu" "win10_pro_admin" {
 resource "proxmox_vm_qemu" "kali" {
 
     count = 1
-    vmid = "100${count.index}"
+    vmid = "1100${count.index}"
     name = "kali-tf-${count.index}"
     target_node = "r730"
     clone = "Kali"
@@ -177,7 +177,7 @@ resource "proxmox_vm_qemu" "kali" {
 resource "proxmox_vm_qemu" "analyst_workstation" {
     
     count = 4
-    vmid = "71${count.index}"
+    vmid = "171${count.index}"
     name = "debian-analystworkstation-tf-${count.index}"
     target_node = "r730"
     clone = "DebianHost"
@@ -205,7 +205,7 @@ resource "proxmox_vm_qemu" "analyst_workstation" {
 resource "proxmox_vm_qemu" "securityonion_sensor" {
     
     count = 1
-    vmid = "72${count.index}"
+    vmid = "172${count.index}"
     name = "seconion-sensor-tf-${count.index}"
     target_node = "r730"
     clone = "SecurityOnion1.0"
