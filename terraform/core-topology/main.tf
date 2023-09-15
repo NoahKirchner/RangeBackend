@@ -32,6 +32,7 @@ provider "proxmox" {
 
 resource "proxmox_vm_qemu" "domain_controller" {
     count = 1
+    vmid = 103
     name = "win2019-dc-tf-${count.index}"
     target_node = "r730"
     clone = "DomainController"
@@ -51,12 +52,13 @@ resource "proxmox_vm_qemu" "domain_controller" {
 
     network {
         model = "e1000"
-        bridge = "vmbr5"
+        bridge = "vmbr3"
     }
 }
 
 resource "proxmox_vm_qemu" "core_router" {
     name = "pfsense-core-router-tf"
+    vmid = 100
     target_node = "r730"
     clone = "CORE-PFSENSE"
     full_clone = true
@@ -133,6 +135,7 @@ resource "proxmox_vm_qemu" "core_router" {
 
 resource "proxmox_vm_qemu" "dmz_router" {
     name = "pfsense-dmz-router-tf"
+    vmid = 101
     target_node = "r730"
     clone = "DMZ-PFSENSE"
     full_clone = true
@@ -208,6 +211,7 @@ resource "proxmox_vm_qemu" "dmz_router" {
 
 resource "proxmox_vm_qemu" "wan_router" {
     name = "pfsense-wan-router-tf"
+    vmid = 102
     target_node = "r730"
     clone = "WAN-PFSENSE"
     full_clone = true
