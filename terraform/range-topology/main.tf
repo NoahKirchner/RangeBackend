@@ -90,7 +90,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
     vmid = "122${count.index}"
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
-    clone = "WIN10-MASTER-1.01"
+    clone = "WIN10-MASTER"
     full_clone = true
     os_type = "win10"
     sockets = 2
