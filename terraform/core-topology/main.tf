@@ -58,7 +58,7 @@ resource "proxmox_vm_qemu" "domain_controller" {
 resource "proxmox_vm_qemu" "core_router" {
     name = "core-router-tf"
     target_node = "r730"
-    clone = "pfSense"
+    clone = "CORE-PFSENSE"
     full_clone = true
 
     sockets = 2
@@ -124,7 +124,7 @@ resource "proxmox_vm_qemu" "core_router" {
 resource "proxmox_vm_qemu" "dmz_router" {
     name = "dmz-router-tf"
     target_node = "r730"
-    clone = "pfSense"
+    clone = "DMZ-PFSENSE"
     full_clone = true
 
     sockets = 2
@@ -190,7 +190,7 @@ resource "proxmox_vm_qemu" "dmz_router" {
 resource "proxmox_vm_qemu" "wan_router" {
     name = "wan-router-tf"
     target_node = "r730"
-    clone = "pfSense"
+    clone = "WAN-PFSENSE"
     full_clone = true
 
     sockets = 2
