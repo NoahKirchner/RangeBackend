@@ -86,7 +86,7 @@ resource "proxmox_vm_qemu" "web_server" {
 
 resource "proxmox_vm_qemu" "win10_pro" {
  
-    count = 5
+    count = 7
     vmid = "122${count.index}"
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
@@ -118,7 +118,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
 
 resource "proxmox_vm_qemu" "win10_pro_admin" {
  
-    count = 1
+    count = 0
     vmid = "121${count.index}"
     name = "win10-pro-admin-tf-${count.index}"
     target_node = "r730"
@@ -144,10 +144,37 @@ resource "proxmox_vm_qemu" "win10_pro_admin" {
 
 }
 
+resource "proxmox_vm_qemu" "win2019_razor" {
+ 
+    count = 1
+    vmid = "134${count.index}"
+    name = "win2019-razor-tf-${count.index}"
+    target_node = "r730"
+    clone = "WIN2019-RAZOR"
+    full_clone = true
+    os_type = "win10"
+    sockets = 2
+    cores = 2
+    memory = "8196"
+    scsihw = "virtio-scsi-pci"
+    oncreate = true 
+
+    disk {
+        size = "64G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "e1000"
+        bridge = "vmbr3"
+    }
+
+}
 
 resource "proxmox_vm_qemu" "kali" {
 
-    count = 1
+    count = 2
     vmid = "1100${count.index}"
     name = "kali-tf-${count.index}"
     target_node = "r730"
@@ -176,7 +203,7 @@ resource "proxmox_vm_qemu" "kali" {
 
 resource "proxmox_vm_qemu" "analyst_workstation" {
     
-    count = 4
+    count = 8
     vmid = "171${count.index}"
     name = "debian-analystworkstation-tf-${count.index}"
     target_node = "r730"
